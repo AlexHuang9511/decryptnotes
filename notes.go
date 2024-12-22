@@ -72,11 +72,12 @@ func main() {
 
 			input, _ := reader.ReadString('\n')
 			input = input[:len(input)-1]
-			userIn, _ := strconv.Atoi(input)
+			userIn, err := strconv.Atoi(input)
+			fmt.Println(err)
 
 			fmt.Println()
 
-			if userIn == 1 {
+			if userIn == 1 || input == "1\r" {
 				// add to enemy list
 				for i := 0; i < 3; i++ {
 					correctCodes[intList[i]-1] = append(correctCodes[intList[i]-1], wordList[i])
@@ -90,7 +91,7 @@ func main() {
 				printIncorrect(incorrectList)
 				fmt.Println("-------------------------------------")
 				round++
-			} else if userIn == 2 {
+			} else if userIn == 2 || input == "2\r" {
 				// add to wrong guesses
 				for i := 0; i < 3; i++ {
 					incorrectList = append(incorrectList, wordList[i])
@@ -126,7 +127,7 @@ func getNewWord(wordList *[]string) {
 
 func printWordList(wordList []string) {
 
-	fmt.Println("\nCurrent Word List")
+
 	for i := 0; i < 3; i++ {
 		fmt.Println(i+1, ": ", wordList[i])
 	}
