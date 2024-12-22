@@ -72,8 +72,8 @@ func main() {
 
 			input, _ := reader.ReadString('\n')
 			input = input[:len(input)-1]
-			userIn, err := strconv.Atoi(input)
-			fmt.Println(err)
+			userIn, _ := strconv.Atoi(input)
+			
 
 			fmt.Println()
 
