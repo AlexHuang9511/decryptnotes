@@ -40,6 +40,7 @@ func main() {
 			fmt.Print("Enemy's Numbers: ")
 			number, _ := reader.ReadString('\n')
 
+			number = number[:len(number)-1]
 			// windows append "\r\n" to the end of input
 			if strings.Contains(number, "\r") {
 
@@ -49,9 +50,10 @@ func main() {
 
 			fmt.Println(number)
 
-			for _, str := range number {
+			for i := 0; i < 3; i++ {
 				// Convert the string to an integer
-				num, err := strconv.Atoi(string(str))
+
+				num, err := strconv.Atoi(string(number[i]))
 
 				fmt.Println(err)
 
