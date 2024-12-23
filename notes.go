@@ -72,8 +72,9 @@ func main() {
 
 			input, _ := reader.ReadString('\n')
 			input = input[:len(input)-1]
-			userIn, _ := strconv.Atoi(input)
-			
+			userIn, err := strconv.Atoi(input)
+
+			fmt.Println(err)
 
 			fmt.Println()
 
@@ -126,7 +127,6 @@ func getNewWord(wordList *[]string) {
 }
 
 func printWordList(wordList []string) {
-
 
 	for i := 0; i < 3; i++ {
 		fmt.Println(i+1, ": ", wordList[i])
