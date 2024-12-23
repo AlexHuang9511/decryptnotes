@@ -43,7 +43,7 @@ func main() {
 			// windows append "\r\n" to the end of input
 			if strings.Contains(number, "\r") {
 
-				number = number[:len(number)-2]
+				number = number[:len(number)-1]
 
 			}
 			for _, str := range number {
