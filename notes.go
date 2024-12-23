@@ -46,15 +46,16 @@ func main() {
 				number = number[:len(number)-1]
 
 			}
+
+			fmt.Println(number)
+
 			for _, str := range number {
 				// Convert the string to an integer
 				num, err := strconv.Atoi(string(str))
 
 				fmt.Println(err)
 
-				if num != 0 {
-					intList = append(intList, num)
-				}
+				intList = append(intList, num)
 			}
 
 			fmt.Println("-------------------------------------")
