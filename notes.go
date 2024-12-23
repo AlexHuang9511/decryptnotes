@@ -149,8 +149,7 @@ func printCorrect(correctCodes [][]string) {
 	fmt.Println("Enemy Correct Guesses")
 	for i := 0; i < 4; i++ {
 
-		out, _ := fmt.Print(i+1, ": ")
-		fmt.Println(out)
+		fmt.Printf("%v: ", i+1)
 
 		for j := 0; j < len(correctCodes[i]); j++ {
 			fmt.Printf("%s, ", correctCodes[i][j])
