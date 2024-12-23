@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 
 var reader = bufio.NewReader(os.Stdin)
@@ -38,9 +39,18 @@ func main() {
 
 			fmt.Print("Enemy's Numbers: ")
 			number, _ := reader.ReadString('\n')
+
+			// windows append "\r\n" to the end of input
+			if strings.Contains(number, "\r") {
+
+				number = number[:len(number)-2]
+
+			}
 			for _, str := range number {
 				// Convert the string to an integer
-				num, _ := strconv.Atoi(string(str))
+				num, err := strconv.Atoi(string(str))
+
+				fmt.Println(err)
 
 				if num != 0 {
 					intList = append(intList, num)
@@ -72,9 +82,7 @@ func main() {
 
 			input, _ := reader.ReadString('\n')
 			input = input[:len(input)-1]
-			userIn, err := strconv.Atoi(input)
-
-			fmt.Println(err)
+			userIn, _ := strconv.Atoi(input)
 
 			fmt.Println()
 
