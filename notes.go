@@ -53,9 +53,7 @@ func main() {
 			for i := 0; i < 3; i++ {
 				// Convert the string to an integer
 
-				num, err := strconv.Atoi(string(number[i]))
-
-				fmt.Println(err)
+				num, _ := strconv.Atoi(string(number[i]))
 
 				intList = append(intList, num)
 			}
@@ -140,7 +138,7 @@ func getNewWord(wordList *[]string) {
 func printWordList(wordList []string) {
 
 	for i := 0; i < 3; i++ {
-		fmt.Println(i+1, ": ", wordList[i])
+		fmt.Println("-> ", wordList[i])
 	}
 
 }
